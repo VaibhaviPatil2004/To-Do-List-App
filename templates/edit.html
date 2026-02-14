@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <title>To-Do List</title>
+  </head>
+  <style>
+   .main-heading {
+    text-align: center;
+  font-size: 2.8rem;
+  font-variant: small-caps;
+  font-weight: 900;
+  letter-spacing: 3px;
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/da026273-0c0a-4847-acad-e2ad3df63962/d5sdeks-dd729fac-61b1-4481-ac8e-34331a8f2b5d.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9kYTAyNjI3My0wYzBhLTQ4NDctYWNhZC1lMmFkM2RmNjM5NjIvZDVzZGVrcy1kZDcyOWZhYy02MWIxLTQ0ODEtYWM4ZS0zNDMzMWE4ZjJiNWQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QdCo4Z32kldW3l92wDE7Ot8kIJ8Yg6ivbR0LA4_PM-4");
+  background-position: center;
+  background-size: cover;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 6px 4px rgb(12, 9, 9);
+}
+    .input1 {
+      height: 3rem;
+      width: 9rem;
+      font-size: 1.3rem;
+      font-family: cursive;
+        text-align: center;
+      border: 4px solid rgb(245, 120, 145);
+    }
+    .input1:focus{
+        outline: none;
+        border: 4px solid rgb(245, 120, 145);
+
+    }
+    .input {
+  height: 3rem;
+  width: 23rem;
+  font-size: 1.3rem;
+  font-family: cursive;
+  border: 4px solid rgb(245, 120, 145);
+}
+
+.input:focus {
+  outline: none;
+  border: 4px solid rgb(245, 120, 145);
+}
+.btn {
+  height: 2.5rem;
+  width: 10rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  
+}
+
+.btn:hover {
+  background-color: skyblue;
+  font-weight: 800;
+  border: none;
+}
+  </style>
+  <body>
+      <h1 class="main-heading">To Do List</h1>
+    <center>
+    
+     <form action="upd2" method="post">
+
+        {% csrf_token %}
+        <input
+          type="number"
+          value="{{listid}}"
+          name="listid"
+          class="input1"
+        /><br /><br />
+
+        <input
+          type="text"
+          placeholder="Type Something here..."
+          class="input"
+          name="content"
+          value="{{content}}"
+        /><br /><br />
+
+        <button class="btn">Add In List</button><br /><br />
+      </form>
+    </center>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+{% load static %}
+<html>
+  <head>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="{% static 'mypro/style.css' %}" />
+  </head>
+  <body>
+    <h1 class="main-heading">To Do List</h1>
+    <form method="post">
+      {% csrf_token %}
+      <input
+        type="number"
+        value="1"
+        name="listid"
+        class="input1"
+        style="
+          height: 3rem;
+          width: 9rem;
+          font-size: 1.3rem;
+          font-family: cursive;
+          margin-left: 7rem;
+          text-align: center;
+          border: 4px solid rgb(245, 120, 145);
+        "
+      /><br /><br />
+
+      <input
+        type="text"
+        placeholder="Type Something here..."
+        class="input"
+        name="content"
+      /><br /><br />
+
+      <button class="btn">Add In List</button><br /><br />
+    </form>
+
+    <table border="3" id="main">
+      {% for i in data %}
+      <tr>
+        <td>{{i.listid}}</td>
+        <td>{{i.content}}</td>
+        <td>
+          <a
+            href="/delete?listid={{i.listid}}"
+            style="
+              color: rgb(247, 5, 5);
+              text-decoration: none;
+              font-size: 1.3rem;
+            "
+            >❌</a
+          >
+        </td>
+
+        <td>
+          <a
+            href="/upd1?listid={{i.listid}}&content={{i.content}}"
+            style="
+              color: rgb(109, 240, 3);
+              text-decoration: none;
+              font-size: 1.3rem;
+            "
+            >✔️</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
